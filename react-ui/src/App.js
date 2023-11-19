@@ -44,7 +44,6 @@ function App() {
         {}
       )
     );
-    console.log(requiredLineChartData);
     setBarChartData(requiredBarChartData);
     setLineChartData(requiredLineChartData);
   };
@@ -60,8 +59,6 @@ function App() {
       initialiseChart();
       return;
     }
-    console.log("hey");
-    console.log(age === "15-25", gender, data);
     const requiredBarChartData = {};
     const requiredLineChartData = {};
     Object.keys(data).forEach((key) => {
@@ -70,9 +67,9 @@ function App() {
           (a, x) =>
             a +
             ((x.age === age || age === "All") &&
-              (x.gender === gender || gender === "All"))
+            (x.gender === gender || gender === "All")
               ? x.time
-              : 0,
+              : 0),
           0
         ) / 60;
       requiredLineChartData[key] = {};
@@ -101,7 +98,6 @@ function App() {
   }, [age, gender]);
   const fetchData = async () => {
     const response = await apiService.fetchData();
-    console.log(response);
     setData(response);
   };
   useEffect(() => {
