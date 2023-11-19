@@ -38,12 +38,13 @@ function App() {
         }
       });
     });
-    setFeatureColorMap(
-      Object.keys(requiredBarChartData).reduce(
-        (a, x) => ({ ...a, [x]: generateRandomColor(0.7) }),
-        {}
-      )
-    );
+    if (!featureColorMap)
+      setFeatureColorMap(
+        Object.keys(requiredBarChartData).reduce(
+          (a, x) => ({ ...a, [x]: generateRandomColor(0.7) }),
+          {}
+        )
+      );
     setBarChartData(requiredBarChartData);
     setLineChartData(requiredLineChartData);
   };
