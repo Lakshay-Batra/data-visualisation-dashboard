@@ -190,6 +190,11 @@ function Dashboard() {
           <></>
         )}
       </div>
+      {!lineChartData || !barChartData ? (
+        <div className="mt-5">Loading...</div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
