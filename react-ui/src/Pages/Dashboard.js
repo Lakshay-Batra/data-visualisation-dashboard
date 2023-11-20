@@ -134,7 +134,12 @@ function Dashboard() {
           document.cookie = `gender=${gender}; path=/`;
         }
         navigate(`?${params.toString()}`);
-      } else navigate("");
+      } else {
+        navigate("");
+        document.cookie = "age=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+        document.cookie =
+          "gender=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      }
     updateChartData(age, gender);
   }, [age, gender, data]);
 
