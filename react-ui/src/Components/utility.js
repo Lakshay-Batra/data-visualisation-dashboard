@@ -1,4 +1,4 @@
-const generateRandomColor = (opacity = 1) => {
+export const generateRandomColor = (opacity = 1) => {
   let color = "rgba(";
   for (let i = 0; i < 3; i++) {
     color += Math.floor(Math.random() * 256) + ",";
@@ -7,4 +7,8 @@ const generateRandomColor = (opacity = 1) => {
   return color;
 };
 
-export default generateRandomColor;
+export const getCookie = (name) => {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
+};
